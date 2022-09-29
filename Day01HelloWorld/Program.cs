@@ -17,8 +17,19 @@ namespace Day01HelloWorld
                     Console.WriteLine("Invalid input");
                     return;
                 }
+                if (name.ToLower() == "santa")
+                {
+                    Console.WriteLine("Santa!!! Can't believe it's you!");
+                    return;
+                }
+                else
+                { 
                 Console.WriteLine($"Hello {name}! You are {age} y/o");
+                Console.WriteLine("Hello {0}! You are {1} y/o. Nice to meet you {0}!", name, age);                
+                }
 
+
+ 
             }
             finally
             {
