@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Day4ListGridViewPeople"
-        mc:Ignorable="d" MinHeight="290" MinWidth="600"
+        mc:Ignorable="d" MinHeight="290" MinWidth="600" Loaded="Window_Loaded" Closing="Window_Closing"
         Title="MainWindow" Height="290" Width="600">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -33,8 +33,8 @@
                 <TextBox Name="TbxName" HorizontalAlignment="Left" Margin="93,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <TextBox Name="TbxAge" HorizontalAlignment="Left" Margin="93,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <Button Name="BtnAddPerson" Content="Add Person" HorizontalAlignment="Left" Margin="93,102,0,0" VerticalAlignment="Top" Width="120" Click="BtnAddPerson_Click"/>
-                <Button Name="BtnDeletePerson" Content="Delete Person" HorizontalAlignment="Left" Margin="93,139,0,0" VerticalAlignment="Top" Width="120" Click="BtnDeletePerson_Click"/>
-                <Button Name="BtnUpdatePerson" Content="Update Person" HorizontalAlignment="Left" Margin="93,178,0,0" VerticalAlignment="Top" Width="120" Click="BtnUpdatePerson_Click"/>
+                <Button Name="BtnDeletePerson" IsEnabled="{Binding SelectedItems.Count, ElementName=LvPeople}" Content="Delete Person" HorizontalAlignment="Left" Margin="93,139,0,0" VerticalAlignment="Top" Width="120" Click="BtnDeletePerson_Click"/>
+                <Button Name="BtnUpdatePerson" IsEnabled="{Binding SelectedItems.Count, ElementName=LvPeople}" Content="Update Person" HorizontalAlignment="Left" Margin="93,178,0,0" VerticalAlignment="Top" Width="120" Click="BtnUpdatePerson_Click"/>
 
             </Grid>
         </Border>
