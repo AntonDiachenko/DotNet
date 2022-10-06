@@ -4,24 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Day02_TempConv"
-        mc:Ignorable="d" FontSize="16" FontWeight="Bold"
-        Title="MainWindow" Height="300" Width="450">
+        mc:Ignorable="d" ResizeMode="NoResize" Loaded="Window_Loaded"
+        Title="MainWindow" Height="200" Width="320">
     <Grid>
-        <Label  Content="Input" HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.96,-2.607"  />
-        <TextBox x:Name="TbxInput" HorizontalAlignment="Left" Margin="191,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" TextChanged="TbxInput_TextChanged"  />
-        
-        <Label Content="Output" HorizontalAlignment="Left" Margin="122,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.96,-2.607"/>
-        <TextBox x:Name="TbxOutput" HorizontalAlignment="Left" Margin="191,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80"/>
-        
-        <Label Content="Input Scale" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Output Scale" HorizontalAlignment="Left" Margin="282,51,0,0" VerticalAlignment="Top" Width="108"/>
-
-        <RadioButton x:Name="RbInputC" GroupName="RbInput" Content="Celcius" HorizontalAlignment="Left" Margin="19,97,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="RbInputF" GroupName="RbInput" Content="Fahrenheit" HorizontalAlignment="Left" Margin="19,131,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="RbInputK" GroupName="RbInput" Content="Kelvin" HorizontalAlignment="Left" Margin="19,166,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="RbOutputC" GroupName="RbOutput" Content="Celcius" HorizontalAlignment="Left" Margin="291,97,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="RbOutputF" GroupName="RbOutput" Content="Fahrenheit" HorizontalAlignment="Left" Margin="291,131,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <RadioButton x:Name="RbOutputK" GroupName="RbOutput" Content="Kelvin" HorizontalAlignment="Left" Margin="291,166,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="14*" />
+            <ColumnDefinition Width="10*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Input" Grid.Column="1" HorizontalAlignment="Left" Width="40" VerticalAlignment="Top"/>
+            <TextBox Name="TbxInput" TextChanged="TbxInput_TextChanged" PreviewTextInput="TbxInput_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="5,4,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="60"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <Label Content="Output" Grid.Column="1" HorizontalAlignment="Left" Width="50" VerticalAlignment="Top"/>
+            <TextBox Name="TbxOutput" HorizontalAlignment="Left" Height="23" Margin="5,4,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="60"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="8,0,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Margin" Value="0,8,0,0"/>
+                    <EventSetter Event="Click" Handler="AnyRadioButton_Click"/>
+                </Style>
+            </StackPanel.Resources>
+            <Label Content="Input Scale"/>
+            <RadioButton Name="RbnInCel" Content="Celsius" IsChecked="True"/>
+            <RadioButton Name="RbnInFah" Content="Fahrenheit"/>
+            <RadioButton Name="RbnInKel" Content="Kelvin"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="8,0,0,0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Margin" Value="0,8,0,0"/>
+                    <EventSetter Event="Click" Handler="AnyRadioButton_Click"/>
+                </Style>
+            </StackPanel.Resources>
+            <Label Content="Input Scale"/>
+            <RadioButton Name="RbnOutCel" Content="Celsius" IsChecked="True"/>
+            <RadioButton Name="RbnOutFah" Content="Fahrenheit"/>
+            <RadioButton Name="RbnOutKel" Content="Kelvin"/>
+        </StackPanel>
     </Grid>
 </Window>
