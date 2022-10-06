@@ -1,0 +1,40 @@
+﻿<Window x:Class="AllInputs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AllInputs"
+        mc:Ignorable="d" FontSize="18"
+        Title="MainWindow" Height="350" Width="550">
+
+    <Grid x:Name="GridMain">
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Age:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Pets:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label Content="Continent of residence:" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Pref. temp (C):" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label ContentStringFormat="{}{0:0.0}°C" Content="{Binding ElementName=SliderTempC, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="157,179,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="1.132,1.239"/>
+        <TextBox x:Name="TbxName" HorizontalAlignment="Left" Margin="90,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="291"/>
+        <RadioButton x:Name="RbnAgeBelow18" Content="Below 18" GroupName="RbnAge" HorizontalAlignment="Left" Margin="90,47,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="RbnAge18to35" Content="18 to 35" GroupName="RbnAge" HorizontalAlignment="Left" Margin="191,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="RbnAge36Plus" Content="36 and above" GroupName="RbnAge" HorizontalAlignment="Left" Margin="300,47,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CbxPetsCats" Content="Cats" HorizontalAlignment="Left" Margin="91,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.069" Width="67"/>
+        <CheckBox x:Name="CbxPetsDogs" Content="Dogs" HorizontalAlignment="Left" Margin="191,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.069" Width="67"/>
+        <CheckBox x:Name="CbxPetsOther" Content="Other" HorizontalAlignment="Left" Margin="300,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.069" Width="67"/>
+        <ComboBox x:Name="ComboContinent" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="255,137,0,0" VerticalAlignment="Top" Width="218">
+            <!-- <ComboBoxItem IsSelected="True" > == Please select == </ComboBoxItem> -->
+            <ComboBoxItem>America</ComboBoxItem>
+            <!--  IsSelected="True" removed -->
+            <ComboBoxItem>Europe</ComboBoxItem>
+            <ComboBoxItem>Antarctica</ComboBoxItem>
+            <ComboBoxItem>Asia</ComboBoxItem>
+            <ComboBoxItem>Australia</ComboBoxItem>
+            <ComboBoxItem>Africa</ComboBoxItem>
+        </ComboBox>
+        <Slider x:Name="SliderTempC" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="0.5" Minimum="15" Maximum="35" Value="22" HorizontalAlignment="Left" Margin="255,189,0,0" VerticalAlignment="Top" Width="217"/>
+        <Button Click="BtnRegister_Click" Content="Register me (append to file Data.txt)" HorizontalAlignment="Left" Margin="90,253,0,0" VerticalAlignment="Top" Width="366" Height="30"/>
+
+    </Grid>
+
+
+</Window>
