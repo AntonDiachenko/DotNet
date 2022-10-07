@@ -30,8 +30,9 @@ namespace Day05FirstEFConsole
         [NotMapped] // in memory only (not reflected in database as a column)
         public string Comment { get; set; }
 
-        public GenderEnum Gender { }
-
+        [EnumDataType(typeof(GenderEnum))]
+        public GenderEnum Gender { get; set; }
+        public enum GenderEnum { Male = 1, Female = 2, Other = 4, NA = 3}
         */
 
     }
